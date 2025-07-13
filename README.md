@@ -52,5 +52,22 @@ This chart shows the services running inside the Ubuntu VM and how Kali interact
 
 ---
 
-## Future Plans
-- Add firewall (`SafeLine`), intrusion detection, and log monitoring tools.
+### Web Application Firewall: SafeLine
+
+To enhance the defensive capabilities of this HomeLab, SafeLine is installed on the Ubuntu (defender) VM as a web application firewall (WAF). Its purpose is to sit in front of DVWA and filter incoming HTTP traffic, providing real-time protection against common web-based attacks such as:
+
+- SQL Injection (SQLi)
+- Cross-Site Scripting (XSS)
+- Command Injection
+- Path Traversal
+
+#### Configuration Overview
+
+After allocating additional disk space to the Ubuntu VM, SafeLine was installed from the official package and configured to act as a reverse proxy in front of Apache. Apache was reconfigured to serve DVWA on an alternate port (8081), while SafeLine listens on port 80 and proxies valid requests internally.
+
+This setup ensures that:
+- All traffic to DVWA is first inspected and filtered by SafeLine
+- Unsafe or malicious payloads are blocked before reaching the application
+- Traffic between Kali (attacker) and DVWA is realistic and secure, simulating a real-world production firewall layer
+
+SafeLine logs and responses will be used to analyze attack patterns and understand WAF rule behavior in response to different exploit attempts from the Kali VM.
