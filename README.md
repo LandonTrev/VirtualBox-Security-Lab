@@ -38,7 +38,7 @@ The Ubuntu VM runs the following stack to simulate vulnerable web applications:
 ## Network Diagram
 This diagram shows the NAT and Host-Only adapter configuration between the Kali (attacker) and Ubuntu (defender) VMS.
 
-![Network Diagram](./flowcharts/ND.png)
+![Network Diagram](HomeLab/flowcharts/ND.png)
 
 
 ---
