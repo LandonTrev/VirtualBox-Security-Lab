@@ -44,6 +44,9 @@ This diagram shows the NAT and Host-Only adapter configuration between the Kali 
 ---
 
 ## Flow Chart
+This chart shows the services running inside the Ubuntu VM and how Kali interacts with DVWA.
+
+![Network Diagram](flowcharts/VMconfig.PNG)
 
 
 
