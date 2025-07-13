@@ -20,6 +20,7 @@ Bridged mode was not possible due to Wi-Fi limitations in my apartment.
 
 The Ubuntu VM runs the following stack to simulate vulnerable web applications:
 
+- **Safeline** - Web Application Firewall
 - **Apache** – Web server
 - **PHP** – Backend processing
 - **MySQL** – Database service
@@ -32,23 +33,6 @@ The Ubuntu VM runs the following stack to simulate vulnerable web applications:
 1. **Kali VM** attacks the **Ubuntu VM** via the Host-Only network.
 2. **DVWA** is served on the Ubuntu machine using Apache and PHP, with data stored in MySQL.
 3. Both VMs can access the internet via their NAT adapters (e.g., to install packages or tools).
-
----
-
-## Network Diagram
-This diagram shows the NAT and Host-Only adapter configuration between the Kali (attacker) and Ubuntu (defender) VMS.
-
-![Network Diagram](flowcharts/ND.PNG)
-
-
----
-
-## Flow Chart
-This chart shows the services running inside the Ubuntu VM and how Kali interacts with DVWA.
-
-![Network Diagram](flowcharts/VMconfig.PNG)
-
-
 
 ---
 
@@ -71,3 +55,22 @@ This setup ensures that:
 - Traffic between Kali (attacker) and DVWA is realistic and secure, simulating a real-world production firewall layer
 
 SafeLine logs and responses will be used to analyze attack patterns and understand WAF rule behavior in response to different exploit attempts from the Kali VM.
+
+---
+
+## Network Diagram
+This diagram shows the NAT and Host-Only adapter configuration between the Kali (attacker) and Ubuntu (defender) VMS.
+
+![Network Diagram](flowcharts/ND.PNG)
+
+
+---
+
+## Flow Chart
+This chart shows the services running inside the Ubuntu VM and how Kali interacts with DVWA.
+
+![Network Diagram](flowcharts/VMconfig.PNG)
+
+
+
+--
