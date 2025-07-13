@@ -40,7 +40,5 @@ The Ubuntu VM runs the following stack to simulate vulnerable web applications:
 
 ---
 
-## 📌 Notes
-
-- HomeLab setup for safe practice of vulnerability scanning, exploitation, and mitigation.
-- Future plans: add firewall (`SafeLine`), intrusion detection, and log monitoring tools.
+## Future Plans
+- Add firewall (`SafeLine`), intrusion detection, and log monitoring tools.
