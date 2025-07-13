@@ -35,7 +35,15 @@ The Ubuntu VM runs the following stack to simulate vulnerable web applications:
 
 ---
 
-## Network Flow Diagram
+## Network Diagram
+
+
+
+
+---
+
+## Flow Chart
+
 
 
 ---
