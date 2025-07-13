@@ -1,2 +1,48 @@
 # HomeLab
-This is where I’ll be documenting my HomeLab setup. Starting with two VMS Kali Linux as the attacker and Ubuntu as the defender. I will use these to simulate isolated virtual labs with internet access provided by NAT. Internal communication between the VMS is handled on a Host-Only Network. A bridged connection wasn't possible due to my apartment's WI-FI configuration. I’ll include a visual map and update things as the lab grows. 
+# HomeLab Environment
+
+This repository documents my HomeLab setup for hands-on cybersecurity and sysadmin practice.
+
+---
+
+## Virtual Machine Setup
+
+- **Attacker:** Kali Linux
+- **Defender:** Ubuntu Linux
+
+Each VM uses:
+- **NAT Adapter** – Provides internet access.
+- **Host-Only Adapter** – Enables internal communication between VMs on a private, isolated network.
+
+Bridged mode was not possible due to Wi-Fi limitations in my apartment.
+
+---
+
+## Services on Ubuntu (Defender)
+
+The Ubuntu VM runs the following stack to simulate vulnerable web applications:
+
+- **Apache** – Web server
+- **PHP** – Backend processing
+- **MySQL** – Database service
+- **DVWA** – Damn Vulnerable Web Application
+
+---
+
+## Network & Traffic Flow
+
+1. **Kali VM** attacks the **Ubuntu VM** via the Host-Only network.
+2. **DVWA** is served on the Ubuntu machine using Apache and PHP, with data stored in MySQL.
+3. Both VMs can access the internet via their NAT adapters (e.g., to install packages or tools).
+
+---
+
+## Network Flow Diagram
+
+
+---
+
+## 📌 Notes
+
+- HomeLab setup for safe practice of vulnerability scanning, exploitation, and mitigation.
+- Future plans: add firewall (`SafeLine`), intrusion detection, and log monitoring tools.
