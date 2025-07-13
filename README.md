@@ -1,6 +1,4 @@
 # HomeLab
-# HomeLab Environment
-
 This repository documents my HomeLab setup for hands-on cybersecurity and sysadmin practice.
 
 ---
