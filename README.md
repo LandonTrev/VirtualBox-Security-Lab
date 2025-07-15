@@ -20,7 +20,7 @@ Bridged mode was not possible due to Wi-Fi limitations in my apartment.
 
 The Ubuntu VM runs the following stack to simulate vulnerable web applications:
 
-- **Safeline** - Web Application Firewall
+- **ModSecurity** - Web Application Firewall
 - **Apache** – Web server
 - **PHP** – Backend processing
 - **MySQL** – Database service
@@ -38,7 +38,7 @@ The Ubuntu VM runs the following stack to simulate vulnerable web applications:
 
 ### Web Application Firewall: SafeLine
 
-To enhance the defensive capabilities of this HomeLab, SafeLine is installed on the Ubuntu (defender) VM as a web application firewall (WAF). Its purpose is to sit in front of DVWA and filter incoming HTTP traffic, providing real-time protection against common web-based attacks such as:
+To enhance the defensive capabilities of this HomeLab, ModSecurity is installed on the Ubuntu (defender) VM as a web application firewall (WAF). Its purpose is to sit in front of DVWA and filter incoming HTTP traffic, providing real-time protection against common web-based attacks such as:
 
 - SQL Injection (SQLi)
 - Cross-Site Scripting (XSS)
@@ -47,16 +47,7 @@ To enhance the defensive capabilities of this HomeLab, SafeLine is installed on 
 
 #### Configuration Overview
 
-After allocating additional disk space to the Ubuntu VM, SafeLine was installed from the official package and configured to act as a reverse proxy in front of Apache. Apache was reconfigured to serve DVWA on an alternate port (8081), while SafeLine listens on port 80 and proxies valid requests internally.
-
-This setup ensures that:
-- All traffic to DVWA is first inspected and filtered by SafeLine
-- Unsafe or malicious payloads are blocked before reaching the application
-- Traffic between Kali (attacker) and DVWA is realistic and secure, simulating a real-world production firewall layer
-
-SafeLine logs and responses will be used to analyze attack patterns and understand WAF rule behavior in response to different exploit attempts from the Kali VM.
-
----
+To be continued 
 
 ## Network Diagram
 This diagram shows the NAT and Host-Only adapter configuration between the Kali (attacker) and Ubuntu (defender) VMS.
