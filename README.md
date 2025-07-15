@@ -36,7 +36,7 @@ The Ubuntu VM runs the following stack to simulate vulnerable web applications:
 
 ---
 
-### Web Application Firewall: SafeLine
+### Web Application Firewall: ModSecurity
 
 To enhance the defensive capabilities of this HomeLab, ModSecurity is installed on the Ubuntu (defender) VM as a web application firewall (WAF). Its purpose is to sit in front of DVWA and filter incoming HTTP traffic, providing real-time protection against common web-based attacks such as:
 
