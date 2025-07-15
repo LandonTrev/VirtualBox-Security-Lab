@@ -62,6 +62,3 @@ This chart shows the services running inside the Ubuntu VM and how Kali interact
 
 ![Network Diagram](flowcharts/VMconfig.PNG)
 
-
-
---
