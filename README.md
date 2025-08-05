@@ -31,7 +31,7 @@ The Ubuntu VM runs the following stack to simulate vulnerable web applications:
 ## Network & Traffic Flow
 
 1. **Kali VM** attacks the **Ubuntu VM** via the Host-Only network.
-2. **DVWA** is served on the Ubuntu machine using Safeline, Apache, and PHP, with data stored in MySQL.
+2. **DVWA** is served on the Ubuntu machine using ModSecurity, Apache, and PHP, with data stored in MySQL.
 3. Both VMs can access the internet via their NAT adapters (e.g., to install packages or tools).
 
 ---
