@@ -3,6 +3,9 @@ Welcome to my Security Lab! I'm using 0xBen or Ben Heaters guide for building th
 
 This is the link to the guide I will be Following https://benheater.com/building-a-security-lab-in-virtualbox/
 
+## Flowchart
+![Lab Architecture Diagram](./docs/FlowChart.png)
+
 ##  Lab Architecture 
 
 The lab is built around a central **pfSense firewall** that acts as a router, segmenting traffic between multiple virtual networks. This design mimics a corporate environment, allowing for realistic attack and defense scenarios. All components are hosted within **VirtualBox** on a single machine.
