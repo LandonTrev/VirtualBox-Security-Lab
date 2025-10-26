@@ -16,6 +16,23 @@ The pfSense VM is the heart of the lab. It connects to the physical home network
 * **LAN Interface:** The primary internal network for attacker machines.
 * **ISOLATED, AD_LAB, VULN_EGRESS Interfaces:** Dedicated segments for specific functions, ensuring traffic from one lab segment doesn't spill into another.
 
+### Core VM's
+* pfSense - Router / firewall (manages lab networks and outbound access)
+
+* Kali Linux - Offensive testing machine
+
+* Ubuntu Server - General services / targets (optional)
+
+* Metasploitable - Intentionally vulnerable box for exploit practice
+
+* VulnHub-VM(s) - Extra vulnerable targets imported from VulnHub
+
+* Windows 10 Enterprise1 & Enterprise2 - Windows clients for AD and endpoint work
+
+* Domain Controller - Windows Server for Active Directory
+
+* Wazuh (with Suricata) - SIEM + network IDS for detection and monitoring
+
 ---
 
 ### Network Segments 
@@ -60,5 +77,15 @@ This network is dedicated to security monitoring and management. It hosts the Se
     * `10.10.10.11` - **Vulnhub-VM:** Another vulnerable machine.
     * `10.10.10.12` - **Win10-Enterprise1:** A second Windows 10 client.
 
+--- 
 
+## Repo Structure 
 
+```
+/ (root) VirtualBox-Security-Lab
+-- configs/        Stores exported configuration files (e.g., pfSense backup, VM settings).
+-- docs/           Contains diagrams and other documentation. 
+-- obsidian-notes/ Holds all markdown notes taken during the lab build-out and experiments.
+README.md          This file, providing a high-level overview of the project.
+.gitignore         Files to ignore (VM Disks, ISOs)
+```
