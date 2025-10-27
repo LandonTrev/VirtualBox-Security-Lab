@@ -10,15 +10,15 @@ Alternate guide (Vmware Workstation Pro):
 
 ##  Lab Architecture 
 
-The lab is built around a central **pfSense firewall** that acts as a router, segmenting traffic between multiple virtual networks. This design mimics a corporate environment, allowing for realistic attack and defense scenarios. All components are hosted within **VirtualBox** on a single machine.
+The lab is built around a central **pfSense firewall** that acts as a router (NAT), segmenting traffic between multiple virtual networks. This design mimics a corporate environment, allowing for realistic attack and defense scenarios. All components are hosted within **VirtualBox** on a single machine.
 
 
 ### Core Component: pfSense Firewall
 
 The pfSense VM is the heart of the lab. It connects to the physical home network via a **Bridged WAN interface** to get internet access and manages all internal lab traffic through several dedicated internal networks.
 
-* **WAN Interface:** Connects to your home network (`192.168.1.0/24`) for internet access.
-* **LAN Interface:** The primary internal network for attacker machines.
+* **WAN Interface:** Connects to home network (`192.168.1.0/24`) for internet access.
+* **LAN Interface:** The primary internal network for attacker machines (Kali Linux)
 * **ISOLATED, AD_LAB, VULN_EGRESS Interfaces:** Dedicated segments for specific functions, ensuring traffic from one lab segment doesn't spill into another.
 
 ### Core VM's
@@ -32,7 +32,7 @@ The pfSense VM is the heart of the lab. It connects to the physical home network
 
 * VulnHub-VM(s) - Extra vulnerable targets imported from VulnHub
 
-* Windows 10 Enterprise1 & Enterprise2 - Windows clients for AD and endpoint work
+* Windows 10 Enterprise1 & Enterprise2 - Windows clients for AD and endpoint work. Uses Domain controller for DHCP not the AD VLAN. 
 
 * Domain Controller - Windows Server for Active Directory
 
@@ -42,15 +42,15 @@ The pfSense VM is the heart of the lab. It connects to the physical home network
 
 ### Network Segments 
 
-Each network segment is configured as a separate "Internal Network" in VirtualBox and corresponds to a pfSense interface. This isolates traffic, which is a key security principle.
+Each network segment is configured as a separate "Internal Network" in VirtualBox and corresponds to a pfSense interface. This isolates traffic, which is a key security principle. Traffic that is not local from VM's will route requests to pfSense which will display our public WIFI's IP not the private IP's of the VM's/Devices themselves.
 
-####  LAN Network (`10.0.0.0/24`)
+####  LAN Network (`10.0.0.1/24`)
 This network serves as the primary "attacker/penetration testing" zone 
 
 * **Purpose:** Launching attacks, general network scanning, and hosting initial access points.
 * **VMs on this network:**
     * `10.0.0.2` - **Kali Linux:** The primary offensive security machine.
-    * `10.0.0.13` - **Vulnhub-VM:** A vulnerable machine for practice.
+    * `10.6.6.13` - **Vulnhub-VM:** A vulnerable machine for practice. This will be assigned an
 
 ---
 
@@ -63,12 +63,13 @@ This is an isolated segment intended for specific experiments. In this diagram, 
 
 ---
 
-####  VULN_EGRESS Network (`10.80.80.0/24`)
+####  AD Lab Network (`10.80.80.0/24`)
 This network simulates a corporate production environment containing core services like Active Directory and user workstations.
 
 * **Purpose:** To practice Active Directory attacks and lateral movement.
 * **VMs on this network:**
     * `10.80.80.2` - **Domain Controller:** A Windows Server VM running Active Directory Domain Services.
+    * `10.80.80.32` - **Win10-Enterprise1** A Windows 10 client machine joined to the domain. 
     * `10.80.80.43` - **Win10-Enterprise2:** A Windows 10 client machine joined to the domain.
 
 ---
