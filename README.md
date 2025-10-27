@@ -16,8 +16,8 @@ The lab is built around a central **pfSense firewall** that acts as a router (NA
 The pfSense VM is the heart of the lab. It connects to the physical home network via a **Bridged WAN interface** to get internet access and manages all internal lab traffic through several dedicated internal networks.
 
 * **WAN Interface:** Connects to home network for internet access.
-* **LAN Interface:** The primary internal network for attacker machines (Kali Linux)
-* **ISOLATED VLAN, AD_LAB VLAN, VULN_EGRESS Interfaces:** Dedicated segments for specific functions, ensuring traffic from one lab segment doesn't spill into another.
+* **LAN Interface:** The primary internal network for attacker machines (Kali Linux) and our SIEM/NIDS
+* **ISOLATED VLAN, AD_LAB VLAN, VULN_EGRESS Interfaces:** Dedicated segments for specific functions, ensuring traffic from one lab segment doesn't spill into another. Keeps everything secure and organized. 
 
 ### Core VM's
 * pfSense - Router / firewall (manages lab networks and outbound access)
@@ -34,7 +34,7 @@ The pfSense VM is the heart of the lab. It connects to the physical home network
 
 * Domain Controller - Windows Server for Active Directory
 
-* Wazuh (with Suricata) - SIEM + network IDS for detection and monitoring
+* Wazuh (with Suricata) - SIEM + NIDS for detection and monitoring
 
 ---
 
