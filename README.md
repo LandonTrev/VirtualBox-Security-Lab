@@ -68,7 +68,7 @@ This is an isolated segment intended for specific experiments on different Vulne
 
 ---
 
-####  AD Lab Network (`10.80.80.0/24`)
+####  AD Lab VLAN (`10.80.80.0/24`)
 This network simulates a corporate production environment containing core services like Active Directory and user workstations.
 
 * **Purpose:** To practice setting up a basic AD forest. Configured to be vulnerable for attacks from Kali on our LAN network. 
@@ -92,7 +92,8 @@ This network can be used for vulnerable hosts that...
 
 ---
 
-####  SIEM + (NIDS) Network Intrusion Detection System (Suratica) (`10.0.0.0/24`)
+####  SIEM + NIDS (`10.0.0.0/24`) - This portion is connected to our LAN 
+Security Information and Event Management (Wazuh) + Network Intrusion Detection System (Suratica)
 SIEM (Wazuh) is the central logging and analysis hub which collects alerts from Suratica (NIDS), along with logs from other VMs like our Windows Login events. This will help organize everything and allow us to search through data and create dashboards to help spot trends or active attacks. 
 
 NIDS (Suratica) is the part that does real time analysis. It has a book of rules that describes what an attack looks like and can catch attacks in the act while providing us with alerts. This is the type of thing you'd see in a SOC where an analyst would check out the alert and respond accordingly. There is way to make automatic conditions as well. After experimenting I may venture into this realm. 
