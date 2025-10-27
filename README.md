@@ -11,7 +11,7 @@ This is the link to the guide I will be Following https://benheater.com/building
 The lab is built around a central **pfSense firewall** that acts as a router (NAT), segmenting traffic between multiple virtual networks. This design mimics a corporate environment, allowing for realistic attack and defense scenarios. All components are hosted within **VirtualBox** on a single machine.
 
 
-### Core Component: pfSense Firewall
+### Core Component: pfSense Firewall (static 10.0.0.1)
 
 The pfSense VM is the heart of the lab. It connects to the physical home network via a **Bridged WAN interface** to get internet access and manages all internal lab traffic through several dedicated internal networks.
 
@@ -122,3 +122,4 @@ The Management Interface (10.0.0.3): This is connected to your LAN. Its only pur
 README.md          This file, providing a high-level overview of the project.
 .gitignore         Files to ignore (VM Disks, ISOs)
 ```
+Note: When configuring pfSense uncheck the box for Blocking RFC 1918 Private Networks. This is because we're double NAT, which means WAN and pfSense are both private networks.
